@@ -1,0 +1,64 @@
+
+<head>
+    <title>Smart Table</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<div class="row bg-warning">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
+
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="form-control">
+            <div class="text-center text-danger">
+                <h2>Welcome!</h2>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="add">@</span>
+                    </div>
+                    <input [formControlName]="'email'" type="email" id="email" class="form-control" placeholder="example@domain.com" aria-label="E-mail" aria-describedby="add">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="row">
+                    <div class="col">
+                        <label for="password">Password:</label>
+                    </div>
+                    <div class="col">
+                        <div class="text-right text-white">
+                            <a><small class="text-muted ">Forgot Password?</small></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+            <span class="input-group-text" id="add-unlock-icon">
+              <i class="mdi mdi-lock"></i>
+            </span>
+                    </div>
+                    <input [formControlName]="'password'" type="password" id="password" class="form-control" placeholder="********" aria-label="Password" aria-describedby="add-unlock-icon">
+                </div>
+            </div>
+<div class="container">
+            <div class="text-center">
+                <button type="submit" class="btn btn-block btn-bg-danger btn-outline-warning text-danger">Sign In</button>
+            </div>
+</div>
+
+
+        <div class="text-center mt-3">
+            <button routerLink="/sign-up" class="btn btn-lg btn-block btn-bg-danger btn-outline-warning text-danger" style="color: red">Create New Account</button>
+        </div>
+
+
+    </form>
+
+    </div>
+</div>

@@ -1,0 +1,96 @@
+
+<head>
+    <title>Smart Table</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<div class="row bg-warning">
+    <div class="col-lg-2 col-md-10"></div>
+    <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="my-3">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-control">
+                <div class="text-center text-danger">
+                    <h2>Join Us!</h2>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+
+
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input [formControlName]="'firstName'" type="text" id="firstName" class="form-control" placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input [formControlName]="'lastName'" type="text" id="lastName" class="form-control" placeholder="Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                  <span class="input-group-text" id="add-mail-icon">
+                    <i class="mdi mdi-contact-mail"></i>
+                  </span>
+                                </div>
+                                <input [formControlName]="'email'" type="email" id="email" class="form-control" placeholder="example@domain.com" aria-describedby="add-mail-icon">
+                            </div>
+                            <span style="color: red; font-size: small;" *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched">
+                Please, enter a valid e-mail!
+              </span>
+                        </div>
+
+
+                </div>
+                        <div class="col-md-6">
+                        <div [formGroupName]="'password'">
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                  <span class="input-group-text" id="add-unlock-icon">
+                    <i class="mdi mdi-lock-open"></i>
+                  </span>
+                                    </div>
+                                    <input [formControlName]="'setPassword'" type="password" id="password" class="form-control" placeholder="At Least 8 Characters" aria-describedby="add-unlock-icon">
+                                </div>
+                                <span style="color: red; font-size: small;" *ngIf="!signUpForm.get('password').get('setPassword').valid && signUpForm.get('password').get('setPassword').touched">
+                  Weak password!
+                </span>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="repeatPassword">Repeat Password:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="add-lock-icon">
+                      <i class="mdi mdi-lock"></i>
+                    </span>
+                                    </div>
+                                    <input [formControlName]="'repeatPassword'" type="password" id="repeatPassword" class="form-control" placeholder="********" aria-describedby="add-lock-icon">
+                                </div>
+                                <span style="color: red; font-size: small;" *ngIf="!signUpForm.get('password').get('repeatPassword').valid && !signUpForm.get('password').get('repeatPassword').pristine">
+                  Passwords do not match!
+                </span>
+                            </div>
+
+
+                    <hr>
+
+                        <div class="form-group">
+                    <div class="text-right">
+                    <button type="submit" class="btn btn-lg btn-outline-warning btn-block text-danger" [disabled]="!signUpForm.valid">Sign Up</button>
+                </div>
+                        </div>
+                </div>
+                    </div>
+
+
+            </form>
+        </div>
+    </div>
+
+

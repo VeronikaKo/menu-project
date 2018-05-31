@@ -1,0 +1,64 @@
+<head>
+    <title>Smart Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-expand-md navbar-bg-warning sticky-top navbar-light bg-warning">
+    <a class="navbar-brand"  href="#"></a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="col-sm-6" data-target="#header" aria-controls="header" aria-expanded="false">
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="header">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-md-0 mr-md-2" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search" [formControlName]="'searchField'">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-light">
+                        <i class="mdi mdi-search-web"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <ul class="navbar-nav ml-md-2">
+                <li class="nav-item text-white">
+                    <a class="nav-link text-white" routerLink="/sign-in" *ngIf="!logInStatus">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" (click)="onSignOut()" *ngIf="logInStatus" >Sign Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/sign-up" *ngIf="!logInStatus">Sign Up</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+</nav>
+<div class="row">
+
+        <div class="col-sm-6 col-md-5 col-lg-4 mx-auto my-3">
+            <form>
+    <div class="col-md-6">
+        <div class="card-columns">
+            <div class="card card-body" style="width: 18rem;height: 12rem;">
+                <span class="float-right font-weight-bold">$7.95</span>
+
+                <div class="checkbox">
+                    <input type="checkbox">
+                </div>
+                <h6 class="text-truncate">Quesadilla</h6>
+                <p class="small">Jack and cheddar cheese, chopped mild green chilies in a pan grilled flour tortilla.Served with sour cream, guacamole and fresh pico de gallo.</p>
+            </div>
+        </div>
+    </div>
+
+        </form>
+</div>
